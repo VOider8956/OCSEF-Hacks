@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>OSCEFHacks</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/main.css">
+    </head>
+
+    <body>
+        <nav>
+            <a href="/templates/index.html">Home</a>
+            <a href="/templates/About.html">About us</a>
+            <a href="/templates/Change.html">Adding Items</a>
+            <a href ="/templates/List.html">List of Items</a>
+        </nav>
+
+        <div class="container">
+            <label for="file">Choose a file:</label>
+            <input type="file" id="file" name="file" multiple />
+        </div>
+        <div> 
+            <button onclick="addReceipt()">Submit</button>
+        </div>
+
+        <br>
+        <div class="container">
+            <input type="text" id="product" name="product" placeholder="Type a product..." />
+            <button onclick="addItem(document.getElementById('product').value)">Add Product</button>
+
+        </div>
+
+        <script src="/static/main.js" defer></script>
+    </body>
+</html>
