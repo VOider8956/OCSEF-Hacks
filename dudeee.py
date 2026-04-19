@@ -12,7 +12,7 @@ filename = sys.argv[1] if len(sys.argv) > 1 else 'Povray_hello_world.png'
 search_paths = [
     filename,  # Current working directory
     os.path.join(script_dir, filename),  # Script directory
-    os.path.join(script_dir, '..', 'images', filename)  # images folder
+    os.path.join(script_dir, '..', 'TTimages', filename)  
 ]
 
 found_file = None
