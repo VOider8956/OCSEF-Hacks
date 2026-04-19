@@ -1,0 +1,52 @@
+<!-- This is the HTML template for the homepage of the Needy Nibbles application. It includes a header with a settings menu and three main cards that link to different pages: the expiration list, the add item page, and the about page. The JavaScript file main.js will handle the functionality of the settings menu and any interactions on this page, while the CSS file main.css will style the page to make it visually appealing and user-friendly. -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>OSCEFHacks</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/main.css">
+        <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+        <script>
+            // Apply dark mode immediately to prevent flash
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        </script>
+    </head>
+
+<body>
+    <div class="add-container">
+        <a href="index.html">
+            <img src="/images/Needy Nibbles Logo (Transparent) (1) (2).png" class="menu-logo" alt="Logo">
+        </a>
+        <h2 class="list-title">Add to Expiration List</h2>
+
+    <div class="input-section">
+        <h3>Upload Receipt</h3>
+        <label for="receipt-upload" class="custom-file-upload">
+            Choose Image
+        </label>
+        <input type="file" id="receipt-upload" accept="image/*">
+        <p id="upload-status"></p>
+    </div>
+
+    <hr class="menu-divider">
+
+    <div class="input-section">
+        <h3>Manual Entry</h3>
+        <div class="manual-group">
+            <div class="autocomplete-wrapper">
+                <input type="text" id="manual-name" placeholder="Enter food name (e.g. Milk)" autocomplete="off">
+                <div id="suggestions-dropdown" class="suggestions-dropdown"></div>
+            </div>
+            <button onclick="handleManualAdd()" class="add-item-btn">Add Item</button>
+        </div>
+    </div>
+</div>
+
+  <script src="/static/main.js" defer></script>
+</body>
+</html>

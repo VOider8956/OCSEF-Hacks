@@ -1,0 +1,102 @@
+<!-- This is the HTML template for the homepage of the Needy Nibbles application. It includes a header with a settings menu and three main cards that link to different pages: the expiration list, the add item page, and the about page. The JavaScript file main.js will handle the functionality of the settings menu and any interactions on this page, while the CSS file main.css will style the page to make it visually appealing and user-friendly. -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>OSCEFHacks</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/main.css">
+        <script>
+            // Apply dark mode immediately to prevent flash
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        </script>
+    </head>
+
+    <body>
+       <header>
+    <div class="menu-container">
+        <button class="dropbtn" onclick="openMenu()">Settings</button>
+        
+        <div id="settingsSideMenu" class="side-menu">
+            <button class="back-btn" onclick="closeMenu()">Back</button>
+
+            <div class="menu-header">
+                <h2 class="menu-title">Options</h2>
+                <h2 class="menu-tagline">Change how Needy Nibbles Looks</h2>
+            </div>
+
+            <hr class="menu-divider">
+
+            <div class="menu-section login-section">
+                <h3>Login</h3>
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password">
+                </div>
+                <div class="login-actions">
+                    <button class="orange-btn">LOG IN</button>
+                    <a href="#" class="create-account">Create Account?</a>
+                </div>
+            </div>
+
+            <div class="menu-section customization-section">
+                <h3>Customization</h3>
+                
+                <div class="control-row">
+                    <span>Receive Notifications</span>
+                    <input type="checkbox" checked>
+                </div>
+                
+                <div class="control-row">
+                    <span>Receive Newsletters</span>
+                    <input type="checkbox">
+                </div>
+
+                <div class="slider-group">
+                    <label>Frequency:</label>
+                    <input type="number" min="0" max="100" step="1" value="50">
+                </div>
+
+                <div class="slider-group">
+                    <label>Notice Time:</label>
+                    <input type="number" id="notice-time-input" min="0" max="100" step="1" value="50">
+                </div>
+
+                <div class="control-row">
+                        <span>Dark Mode</span>
+                        <input type="checkbox" id="dark-mode-toggle">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>Welcome to Needy Nibbles!</h1>
+</header>
+
+        <div class="container"> 
+            <a href = "/templates/List.html" class="card">
+                <p> Check Expiration List </p>
+                <img src="/images/3.png"alt="Checklist Logo">
+            </a>
+            <a href ="/templates/Change.html" class="card">
+                <p> Add to Expiration List </p>
+                <img src="/images/2.png" alt="Add Logo">
+            </a>
+            <a href ="/templates/About.html" class="card">
+                <p> Creators </p>
+                <img src="/images/4.png" alt="About Logo">
+            </a>
+        </div>
+        <script src="/static/main.js" defer></script>
+    </body>
+</html>

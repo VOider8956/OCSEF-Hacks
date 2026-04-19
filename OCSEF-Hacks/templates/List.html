@@ -1,0 +1,45 @@
+<!-- This is the HTML template for the expiration list page. It includes a section for displaying the list of food items and their expiration dates, as well as a section for notifications. The JavaScript file main.js will handle fetching the data and updating the DOM accordingly. The CSS file main.css will style the page to make it visually appealing and user-friendly. -->
+<!-- No I don't want to add the background slate because I'm FUCKING SICK OF THIS BULLSHIT AND I WANT TO FINISH THE DAMN PROJECT ALREADY. I CAN'T BELIEVE I'M STILL WORKING ON THIS AT 2 AM THE NIGHT BEFORE THE HACKS. I JUST WANT TO GO TO SLEEP. I HATE CSS. I HATE HTML. I HATE EVERYTHING. WHY DID I SIGN UP FOR THIS? WHY DID I THINK THIS WAS A GOOD IDEA? I'M NEVER DOING THIS AGAIN. I'M NEVER CODING AGAIN. I'M JUST GOING TO BE A BARISTA OR SOMETHING. ANYTHING BUT THIS. PLEASE LET ME FINISH THIS AND GO TO SLEEP. PLEASE. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Needy Nibbles - Expiration List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/main.css">
+    <script>
+        // Apply dark mode immediately to prevent flash
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</head>
+<body> 
+    <div class="expiration-page">
+
+    <div class="list-section">
+        <div class="list-header">
+            <a href="index.html">
+                <img src="/images/Needy Nibbles Logo (Transparent) (1) (2).png" class="menu-logo" alt="Logo">
+            </a>
+            <h2 class="list-title">Expiration List</h2>
+        </div>
+        
+        <div id="food-list-container" class="food-list">
+            <div class="food-item">Loading items...</div>
+        </div>
+    </div>
+
+    <div class="notification-section">
+        <h2 class="list-title notification-title">Notifications</h2>
+        <div id="notif-container" class="notif-list">
+           
+        </div>
+    </div>
+</div>
+
+    <script src="/static/main.js" defer></script>
+</body>
+</html>
