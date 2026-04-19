@@ -1,69 +1,447 @@
+/* ================= THEME VARIABLES ================= */
+
+:root {
+    /* LIGHT MODE (Default) */
+    --main-bg: #f2b71fff;
+    --card-bg: #e38a22ff;
+    --header-bg: #d28106ff;
+    --text-color: #ffffff;
+    --side-menu-bg: #2b1b0e;
+    --hover-bg: #ffd966ff;
+}
+
+body.dark-theme {
+    /* DARK MODE (Active) */
+    --main-bg: #45818eff;      
+    --card-bg: #404040ff;      
+    --header-bg: #303030ff; 
+    --text-color: #ffffff;  
+    --side-menu-bg: #2b1b0e; 
+    --hover-bg: #595959ff;    
+}
+/* ================= GLOBAL STYLES ================= */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: var(--main-bg);
     margin: 0;
     padding: 0;
 }
 
+/* ================= HEADER ================= */
+
 header {
-    background-color: #ffffff;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--header-bg);
+    padding: 15px;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
 }
 
 header button {
-    background-color: #5d6d7e;
-    color: white;
+    justify-self: start;
+
+    background-color: var(--main-bg);
+    color: var(--text-color);
     border: none;
     padding: 10px 20px;
+
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
-    float: left;
+
 }
 
 header h1 {
+    justify-self: center;
+
     margin: 0;
     font-size: 36px;
-    color: #333;
+    color: var(--text-color);
 }
+
+/* ================= CONTAINER ================= */
 
 .container {
     display: flex;
     justify-content: center;
-    gap: 100px;
-    margin-top: 40px;
+    gap: 30px;
+
+    margin-top: 50px;
+    padding: 0 40px;
+
+    flex-wrap: wrap;
 }
 
+/* ================= CARDS ================= */
+
 .card {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    height: 400px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+    width: 420px;
+    height: 520px;
+
+    padding: 25px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+
+    gap: 15px;
+
+    text-align: center;
+
     cursor: pointer;
-    padding: 10px;
-    transition: background-color 0.3s;
+    padding: 30px 18px 18px 18px;
+
+    transition: background-color 0.3s, transform 0.2s;
 }
+
 a.card {
     text-decoration: none;
     color: inherit;
 }
-.card img {
-    width: 275px;
-    height: 275px;
-    margin-bottom: 20px;
-}
+
 .card:hover {
-    background-color: #e0e0e0;
+    background-color: var(--hover-bg);
+    transform: translateY(-5px);
 }
 
+/* ================= IMAGES ================= */
+
+.card img {
+    width: 400px;
+    height: 400px;
+
+    object-fit: contain;
+    object-position: center;
+
+    padding: 10px;
+}
+
+/* ================= TEXT ================= */
+
 .card p {
-    font-size: 30px;
+    font-size: 32px;
+    color: white;
+    margin: 0;
+}
+
+/* ================= MOBILE FIX ================= */
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 22px;
+        padding: 0 10px;
+    }
+
+    .card {
+        width: 90%;
+        height: auto;
+    }
+
+    .card img {
+        width: 220px;
+        height: 220px;
+    }
+}
+/* ================= SIDE MENU OVERLAY ================= */
+.side-menu {
+    color: white;
+}
+
+.side-menu label,
+.side-menu p,
+.side-menu h2,
+.side-menu h3,
+.side-menu span {
+    color: white;
+}
+.brand-highlight {
+    color: #ff4fa3;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.side-menu {
+    height: 100%;
+    width: 0; /* Starts closed */
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: var(--side-menu-bg);
+    overflow-x: hidden;
+    transition: 0.4s; /* Smooth slide effect */
+    padding-top: 60px;
+    box-shadow: 10px 0 20px rgba(0,0,0,0.5);
+}
+
+/* Open State (Triggered by JS) */
+.side-menu.active {
+    width: 350px; /* Adjust width as needed */
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* Back Button */
+.back-btn {
+    position: absolute; /* Changed from fixed to absolute */
+    bottom: 75px;
+    left: 20px;
+
+    background-color: var(--side-menu-bg)   ;
+    border: none;
+    padding: 12px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    border-radius: 10px 10px 0 10px; /* bookmark shape */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Centered Header & Tagline */
+.menu-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.menu-title { color: var(--text-color); font-size: 28px; margin: 0; }
+.menu-tagline { color: #ff4fa3; font-size: 14px; }
+
+/* Section Alignment: Right-Faced / Right-Sided */
+.login-section, .customization-section {
+    text-align: left;
+    margin-top: 30px;
+}
+
+/* Input Styling (Fixing the edge issue) */
+.input-group {
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+.input-group label {
+    display: block;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+.input-group input[type="number"] {
+    border-color: #ffd966ff;
+    width: 90%;
+    padding: 10px;
+
+    background: #1a1108;
+    border: 1px solid #f4a321;
+
+    color: var(--text-color);
+    border-radius: 5px;
+
+    font-size: 16px;
+}
+
+
+/* Checkbox Alignment (Checkbox on the right) */
+.control-row {
+    display: flex;
+    justify-content: flex-end; /* Pushes content to the right */
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: var(--text-color);
+}
+
+/* Slider Styling */
+.slider-group {
+    margin-top: 15px;
+    color: var(--text-color);
+}
+.slider-group input {
+    width: 100%;
+    accent-color: #f4a321; /* Orange slider handle */
+}
+
+.orange-btn {
+    background-color: var(--side-menu-bg);
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.create-account {
+    display: block;
+    color: white;
+    font-size: 12px;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+/* ================= EXPIRATION PAGE ================= */
+
+.expiration-page {
+    display: flex;
+    height: 100vh; /* Fixes the height to exactly the screen size */
+    overflow: hidden; /* Prevents the main page from scrolling */
+}
+
+/* LIST SIDE */
+.list-section {
+    flex: 1;
+    padding: 40px;
+    text-align: left;
+    border-right: 5px solid #d28106; /* The vertical line from your image */
+}
+
+.list-title {
+    background-color: #d28106;
+    color: white;
+    display: inline-block;
+    padding: 10px 40px;
+    transform: skew(-15deg); /* Creates that slanted box look */
+    margin-bottom: 30px;
+}
+
+.food-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.food-item {
+    font-size: 18px;
+    padding: 10px;
+    font-weight: bold;
+    color: #1a1108;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* The Black Selection Bar */
+.food-item.active {
+    background-color: #000;
+    color: #fff;
+    border-radius: 20px 0 0 20px;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* The little white arrow on the active bar */
+.food-item.active::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #000;
+}
+
+.delete-btn {
+    float: right;
+    color: #ff4fa3;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* NOTIFICATION SIDE */
+.notification-section {
+    flex: 1;
+    background-color: #fce4ec; /* Light pink background from image */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Dark Mode adjustment for the pink side */
+body.dark-theme .notification-section {
+    background-color: #2b1b0e;
+}
+
+.notif-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-left: 8px solid #ff4fa3; /* A little accent line to match the theme */
     color: #333;
+}
+
+.suggestion {
+    color: #666;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* This targets the scrollbar area for the list and notifications */
+.list-section, .notification-section {
+    flex: 1;
+    padding: 40px; /* Gives room around the titles and lists */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Enables the individual scrollbars */
+    box-sizing: border-box;
+}
+.food-list, .notif-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between items/cards */
+    width: 100%;
+}
+
+/* 1. The background of the scrollbar (The Track) */
+.list-section::-webkit-scrollbar {
+    width: 12px;
+}
+
+.list-section::-webkit-scrollbar-track {
+    background: #f2b71fff; /* Matches your yellow background */
+}
+
+/* 2. The moving part (The Thumb) */
+.list-section::-webkit-scrollbar-thumb {
+    background: #8d5524; /* That dark brown color */
+    border-radius: 10px;
+    border: 2px solid #f2b71fff; /* Adds padding around the thumb */
+}
+
+/* 3. Notification side scrollbar (if you want it different) */
+.notification-section::-webkit-scrollbar {
+    width: 12px;
+}
+
+.notification-section::-webkit-scrollbar-track {
+    background: #fce4ec; /* Matches the light pink */
+}
+
+.notification-section::-webkit-scrollbar-thumb {
+    background: #ff4fa3; /* Matching the pink accent color */
+    border-radius: 10px;
+}
+
+.input-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.manual-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#manual-name {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 250px;
 }

@@ -1,3 +1,4 @@
+<!-- This is the HTML template for the homepage of the Needy Nibbles application. It includes a header with a settings menu and three main cards that link to different pages: the expiration list, the add item page, and the about page. The JavaScript file main.js will handle the functionality of the settings menu and any interactions on this page, while the CSS file main.css will style the page to make it visually appealing and user-friendly. -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,29 +10,30 @@
         <link rel="stylesheet" href="/static/main.css">
     </head>
 
-    <body>
-        <nav>
-            <a href="/templates/index.html">Home</a>
-            <a href="/templates/About.html">About us</a>
-            <a href="/templates/Change.html">Adding Items</a>
-            <a href ="/templates/List.html">List of Items</a>
-        </nav>
+<body>
+    <div class="add-container">
+        <h2 class="list-title">Add to Expiration List</h2>
 
-        <div class="container">
-            <label for="file">Choose a file:</label>
-            <input type="file" id="file" name="file" multiple />
+    <div class="input-section">
+        <h3>Upload Receipt</h3>
+        <label for="receipt-upload" class="custom-file-upload">
+            Choose Image
+        </label>
+        <input type="file" id="receipt-upload" accept="image/*">
+        <p id="upload-status"></p>
+    </div>
+
+    <hr class="menu-divider">
+
+    <div class="input-section">
+        <h3>Manual Entry</h3>
+        <div class="manual-group">
+            <input type="text" id="manual-name" placeholder="Enter food name (e.g. Milk)">
+            <button onclick="handleManualAdd()" class="orange-btn">Add Item</button>
         </div>
-        <div> 
-            <button onclick="addReceipt()">Submit</button>
-        </div>
+    </div>
+</div>
 
-        <br>
-        <div class="container">
-            <input type="text" id="product" name="product" placeholder="Type a product..." />
-            <button onclick="addItem(document.getElementById('product').value)">Add Product</button>
-
-        </div>
-
-        <script src="/static/main.js" defer></script>
-    </body>
+  <script src="/static/main.js" defer></script>
+</body>
 </html>
