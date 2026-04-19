@@ -1,27 +1,36 @@
+<!-- This is the HTML template for the expiration list page. It includes a section for displaying the list of food items and their expiration dates, as well as a section for notifications. The JavaScript file main.js will handle fetching the data and updating the DOM accordingly. The CSS file main.css will style the page to make it visually appealing and user-friendly. -->
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>List of Items</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>        
-        <nav>
-            <a href="/templates/index.html">Home</a>
-            <a href="/templates/About.html">About us</a>
-            <a href="/templates/Change.html">Adding Items</a>
-            <a href ="/templates/List.html">List of Items</a>
-        </nav>
-        <div class="container">
-            <h1>List of Items</h1>
-             <ul id="product-list"></ul>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Needy Nibbles - Expiration List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body> 
+    <div class="expiration-page">
+
+    <div class="list-section">
+        <a href="index.html">
+            <img src="/static/logo.png" class="menu-logo" alt="Logo">
+        </a>
+        <h2 class="list-title">Expiration List</h2>
+        
+        <div id="food-list-container" class="food-list">
+            <div class="food-item">Loading items...</div>
         </div>
-        <br>
-        <div class="container">
-            <button onclick="clearList()">Clear List</button>
-        <script src="/static/main.js" defer></script>
-    </body>
+    </div>
+
+    <div class="notification-section">
+        <h2 class="list-title" style="background-color: #ff4fa3;">Notifications</h2>
+        <div id="notif-container" class="notif-list">
+           
+        </div>
+    </div>
+</div>
+
+    <script src="/static/main.js" defer></script>
+</body>
 </html>
